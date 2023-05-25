@@ -27,7 +27,7 @@ class ZapierNLAWrapper(BaseModel):
     Full docs here: https://nla.zapier.com/api/v1/docs
 
     Note: this wrapper currently only implemented the `api_key` auth method for
-    testingand server-side production use cases (using the developer's connected
+    testing and server-side production use cases (using the developer's connected
     accounts on Zapier.com)
 
     For use-cases where LangChain + Zapier NLA is powering a user-facing application,

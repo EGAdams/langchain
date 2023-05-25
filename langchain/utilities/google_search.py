@@ -9,8 +9,7 @@ from langchain.utils import get_from_dict_or_env
 class GoogleSearchAPIWrapper(BaseModel):
     """Wrapper for Google Search API.
 
-    Adapted from: Instructions adapted from https://stackoverflow.com/questions/
-    37083058/
+    Adapted from: Instructions adapted from https://stackoverflow.com/questions/37083058/
     programmatically-searching-google-in-python-using-custom-search
 
     TODO: DOCS for using it
