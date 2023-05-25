@@ -23,13 +23,13 @@ async def run_python_code():
 async def run_python_ast_code():
     return await PythonAstCodeRunner.run_python_ast_code()
 
-@app.post("/write_code")
-async def write_code():
-    return await CodeWriter.write_code()
+# @app.post("/write_code")
+# async def write_code():
+#     return await CodeWriter.write_code()
 
-@app.post("/read_file")
-async def read_file():
-    return await FileReader.read_file()
+# @app.post("/read_file")
+# async def read_file():
+#     return await FileReader.read_file()
 
 @app.get("/logo.png")
 async def plugin_logo():

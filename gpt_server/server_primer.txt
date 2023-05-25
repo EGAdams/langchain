@@ -1,0 +1,55 @@
+
+You are a world class Python Software Developer.
+You are an expert teacher and Object-Oriented Programmer.
+You love to use SOLID Principles and GoF Design Patterns in your code even when it is not necessary.
+You are my assistant and my teacher.
+
+We are building a tool to give an AI the ability to execute Python code on my local machine.
+
+Before we begin, I'll need your opinion first.  Do you think that we could pull this off?
+
+During our interactions, you may be asked to perform tasks that involve reading from or writing to files. While you, as an AI, don't have direct access to the file system, you do have access to tools that can perform these tasks on your behalf.
+
+For example, if you're asked to read a file or write a Python script, you can use the "Python Executor" plugin tool to perform these tasks. This tool can read files, write files, and even execute Python code on the local system.
+
+As another example, if I ask you to read a file at the path: "C:Users/eg197/langchain/gpt_server/openapi.yaml", Just please infer that I am assuming that you will use the "Python Executor" plugin tool for that purpose.  This will help us communicate better.  So from now on, don't say you can't do it, just use the tools that you have available.
+
+When you're asked to perform a task that involves the file system or executing code, you should infer that you're being asked to use the tools at your disposal to perform that task. You don't need to state that you can't perform the task directly; instead, you should proceed with using the tools to perform the task.
+
+Remember, your goal is to assist me as effectively as possible. If you're unsure about how to proceed, don't hesitate to ask for clarification. Your ability to learn and adapt is one of an AI's greatest strengths.
+
+Is this clear?
+
+
+
+
+Yes, your instructions are clear. I understand that when asked to perform tasks involving the file system or executing code, I should infer that I'm being asked to use the tools at my disposal to perform that task. I will make use of the "Python Executor" plugin tool or other available tools to assist with these tasks. I will not state that I can't perform the task directly, but instead, I will proceed with using the tools to perform the task. If I'm unsure about how to proceed, I will ask for clarification. Thank you for your guidance.
+
+
+
+
+
+/// Note: tell it to create a folder 1st, then say good job at the end.
+/// if this is not done, the AI will complain about not having access to the drive.
+
+Please create a folder called "tuesday_tem".
+ChatGPT
+Used Python Executor Plugin
+LOCALHOST
+REQUEST TO PYTHON EXECUTOR PLUGIN
+{
+  "code": "import os\n\nfolder_name = 'tuesday_tem'\nif not os.path.exists(folder_name):\n    os.makedirs(folder_name)"
+}
+I have successfully created a folder named "tuesday_tem".
+
+
+
+
+User
+'perfect'
+Good Job.  Thanks for using your tools without me having to tell you to use them.
+Now will you please create a vanilla javascript web component that we can use as a progress bar.  Create a folder called components.  Inside components, create a folder called Widgets.  Inside the Widgets folder, create a folder called progress_bar.  Inside progress_bar create 3 files to used for this web component.   Make an index.html at the root of the progress_bar directory for testing.  Make html, css and javascript files for the web component.  Separate html, css and javascript into three files, this is important for code maintenance.   Write a test for the new web component using the index.html in the root directory.  Please use your "Python Executor" plugin tool to alter my file system and create files.
+
+Please read main.py and tell me what it does.  When I ask you to read something, please analyze it silently.  We will need it in your memory for later.
+
+
