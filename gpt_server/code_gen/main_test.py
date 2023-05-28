@@ -19,15 +19,18 @@ generate_html_documentation = generate_html_documentation.GenerateHtmlDocumentat
 generate_unit_test          = generate_unit_test.GenerateUnitTest( r"C:\Users\eg197\langchain\gpt_server\code_gen\\", r"C:\Users\eg197\langchain\gpt_server\code_gen\unit_test_template.txt" )
 
 
-# Create the CodeGenAgent
-codegen_agent = CodeGenAgent(tools=[
-    {'class': generate_directories, 'other_arg': 'value'},
-    {'class': generate_header_file, 'other_arg': 'value'},
-    {'class': generate_cpp_file, 'other_arg': 'value'},
-    {'class': update_makefile, 'other_arg': 'value'},
-    {'class': generate_html_documentation, 'other_arg': 'value'},
-    {'class': generate_unit_test, 'other_arg': 'value'},
-])
+# Create a list of tool instances
+tools = [
+    generate_directories,
+    generate_header_file,
+    generate_cpp_file,
+    update_makefile,
+    generate_html_documentation,
+    generate_unit_test
+]
+
+# Create a CodeGenAgent instance
+codegen_agent = CodeGenAgent(tools=tools)
 
 
 

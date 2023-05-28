@@ -10,22 +10,16 @@ from typing import Any, Dict, List, Sequence, Tuple, Union, Optional
 
 from langchain.tools.base import BaseTool
 
+from typing import List
+from langchain.agents.agent import BaseSingleActionAgent
+from langchain.tools.base import BaseTool
+
 class CodeGenAgent(BaseSingleActionAgent):
     tools: List[BaseTool]
 
-    def __init__(self, tools: List[Dict[str, Any]]) -> None:
-        tool_instances = [self._create_tool(tool) for tool in tools]
-        super().__init__(tools=tool_instances)
-        self.tools = tool_instances
-
-    def _create_tool(self, tool: Dict[str, Any]) -> BaseTool:
-        # Create a BaseTool instance from the dictionary
-        # This is a simplified example, you might need to adjust it based on your actual tool classes
-        tool_class = tool.pop('class')
-        return tool_class(**tool)
-
-
-
+    def __init__(self, tools: List[BaseTool]) -> None:
+        super().__init__(tools=tools)  # Pass tools to the superclass's __init__ method
+        self.tools = tools
 
     @property
     def return_values(self) -> List[str]:
