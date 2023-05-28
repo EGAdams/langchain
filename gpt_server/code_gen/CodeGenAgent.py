@@ -6,13 +6,26 @@ from langchain.callbacks.base import BaseCallbackManager
 from langchain.callbacks.manager import Callbacks
 from langchain.schema import ( AgentAction, AgentFinish )
 
-from typing import Any, List, Sequence, Tuple, Union, Optional
+from typing import Any, Dict, List, Sequence, Tuple, Union, Optional
 
 from langchain.tools.base import BaseTool
 
 class CodeGenAgent(BaseSingleActionAgent):
-    def __init__(self, tools):
-        self.tools = tools
+    tools: List[BaseTool]
+
+    def __init__(self, tools: List[Dict[str, Any]]) -> None:
+        tool_instances = [self._create_tool(tool) for tool in tools]
+        super().__init__(tools=tool_instances)
+        self.tools = tool_instances
+
+    def _create_tool(self, tool: Dict[str, Any]) -> BaseTool:
+        # Create a BaseTool instance from the dictionary
+        # This is a simplified example, you might need to adjust it based on your actual tool classes
+        tool_class = tool.pop('class')
+        return tool_class(**tool)
+
+
+
 
     @property
     def return_values(self) -> List[str]:

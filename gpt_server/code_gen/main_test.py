@@ -20,14 +20,16 @@ generate_unit_test          = generate_unit_test.GenerateUnitTest( r"C:\Users\eg
 
 
 # Create the CodeGenAgent
-codegen_agent = CodeGenAgent([
-    generate_directories,
-    generate_header_file,
-    generate_cpp_file,
-    update_makefile,
-    generate_html_documentation,
-    generate_unit_test,
+codegen_agent = CodeGenAgent(tools=[
+    {'class': generate_directories, 'other_arg': 'value'},
+    {'class': generate_header_file, 'other_arg': 'value'},
+    {'class': generate_cpp_file, 'other_arg': 'value'},
+    {'class': update_makefile, 'other_arg': 'value'},
+    {'class': generate_html_documentation, 'other_arg': 'value'},
+    {'class': generate_unit_test, 'other_arg': 'value'},
 ])
+
+
 
 # Test the plan method
 print(codegen_agent.plan([]))
