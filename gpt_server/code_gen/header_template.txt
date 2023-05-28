@@ -1,0 +1,28 @@
+#ifndef {CLASS_NAME}_H
+#define {CLASS_NAME}_H
+
+class {CLASS_NAME} {
+public:
+    // Constructor
+    {CLASS_NAME}();
+
+    // Destructor
+    ~{CLASS_NAME}();
+
+    // Example of a method declaration
+    // void methodName( int parameterName );
+
+    // Example of a short method
+    void isAdministrator() { return _isAdmin; }
+
+    // Example of a longer method
+    void writeToFile( String textToWrite ) {
+        printf( "writing to file..." );
+        fileObject.writeFile( textToWrite );
+        return; }
+    
+    // Example of a property declaration
+    // int propertyName;
+};
+
+#endif // {CLASS_NAME}_H

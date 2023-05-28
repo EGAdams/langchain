@@ -1,0 +1,15 @@
+#include "{CLASS_NAME}.h"
+
+{CLASS_NAME}::{CLASS_NAME}() {
+    // Constructor implementation
+    // This is where you initialize your properties
+}
+
+{CLASS_NAME}::~{CLASS_NAME}() {
+    // Destructor implementation
+    // This is where you clean up your resources
+}
+
+// Example of a method implementation
+// void {CLASS_NAME}::methodName( int parameterName ) {
+//     // Method implementation }

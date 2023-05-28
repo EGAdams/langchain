@@ -1,0 +1,16 @@
+#include "{CLASS_NAME}.h"
+#include <iostream>
+
+void test_{CLASS_NAME}() {
+    {CLASS_NAME} obj;
+
+    // TODO: Add tests for {CLASS_NAME} methods here
+
+    std::cout << "{CLASS_NAME} tests passed.\n";
+}
+
+int main() {
+    test_{CLASS_NAME}();
+
+    return 0;
+}

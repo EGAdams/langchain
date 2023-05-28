@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{CLASS_NAME} Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .class-name {
+            font-size: 2em;
+            color: #005599;
+        }
+        .section {
+            margin-bottom: 2em;
+        }
+        .section h2 {
+            color: #339933;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="class-name">{CLASS_NAME}</h1>
+        <div class="section">
+            <h2>Description</h2>
+            <p>{CLASS_DESCRIPTION}</p>
+        </div>
+        <div class="section">
+            <h2>Methods</h2>
+            <p>{CLASS_METHODS}</p>
+        </div>
+        <div class="section">
+            <h2>Properties</h2>
+            <p>{CLASS_PROPERTIES}</p>
+        </div>
+    </div>
+</body>
+</html>
