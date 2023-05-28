@@ -1,7 +1,8 @@
 import os
 import logging
+from langchain.tools.base import BaseTool
 
-class GenerateDirectories:
+class GenerateDirectories(BaseTool):
     def __init__(self, base_directory):
         self.base_directory = base_directory
         logging.basicConfig(level=logging.INFO)
@@ -10,14 +11,17 @@ class GenerateDirectories:
         # Check if directory name is not empty
         if not directory_name:
             return False
+
         # Check if directory name contains invalid characters
-        invalid_chars = ['<', '>', ':', '"', '/', '\\', '|', '?', '*']
+        invalid_chars = ['<', '>', ':', '\"', '/', '\\', '|', '?', '*']
         if any(char in directory_name for char in invalid_chars):
             return False
+
         # Check if directory already exists
         if os.path.exists(os.path.join(self.base_directory, directory_name)):
-            print( "directory already exists, nothing to do..." )
+            print("directory already exists, nothing to do...")
             return True
+
         return True
 
     def create_directory(self, directory_name):
