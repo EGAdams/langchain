@@ -4,7 +4,7 @@ import logging
 from pydantic import Field
 from langchain.tools.base import BaseTool
 
-class GenerateHtmlDocumentation(BaseTool):
+class GenerateHtmlDocumentation( BaseTool ):
     
     base_directory: str = Field(...)
     template_file: str  = ""         # !!! this cost me hours!
@@ -62,5 +62,8 @@ class GenerateHtmlDocumentation(BaseTool):
 
 # if main
 if __name__ == "__main__":
-    tool = GenerateHtmlDocumentation( "GenerateHtmlDocumentation", "This tool generates HTML documentation for a given class", r"C:\\Users\\eg197\\gpt_write_python\\code_gen\\\\", r"C:\\Users\\eg197\\gpt_write_python\\code_gen\\html_template.txt" )
+    tool = GenerateHtmlDocumentation( "GenerateHtmlDocumentation",
+                                     "This tool generates HTML documentation for a given class",
+                                     r"C:\Users\eg197\langchain\gpt_server\code_gen\\",
+                                     r"C:\Users\eg197\langchain\gpt_server\code_gen\html_template.txt" )
     print(tool.create_html_file( "NewClass" ))

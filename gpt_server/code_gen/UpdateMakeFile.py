@@ -1,9 +1,14 @@
 import fileinput
+from tools import BaseTool
 
-class UpdateMakefile:
-    def __init__(self, makefile_path, shell_executor):
+class UpdateMakefile(BaseTool):
+    def __init__(self, name: str, description: str, base_directory: str, makefile_path: str, shell_executor):
+        super().__init__(name=name, description=description, base_directory=base_directory)
         self.makefile_path = makefile_path
         self.shell_executor = shell_executor
+
+    def run(self, file_path: str):
+        self.add_file(file_path)
 
     def add_file(self, file_path):
         command = f"echo '{file_path}: ' >> {self.makefile_path}"
@@ -21,3 +26,11 @@ class UpdateMakefile:
     def validate_makefile(self):
         command = f"make -n -f {self.makefile_path}"
         return self.shell_executor.execute(command)
+    
+    def _run(self, *args, **kwargs):
+        # Implement the synchronous execution logic here
+        print( "*** WARNING: GenerateDirectories._run() called, but not implemented. ***" )
+        
+    async def _arun(self, *args, **kwargs):
+        # Implement the asynchronous execution logic here
+        print( "*** WARNING: GenerateDirectories._arun() called, but not implemented. ***" )
