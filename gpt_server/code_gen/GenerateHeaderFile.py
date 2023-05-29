@@ -6,7 +6,7 @@ from langchain.tools.base import BaseTool
 
 class GenerateHeaderFile( BaseTool ):
     base_directory: str = Field(...)
-    template_file: str
+    template_file: str  = ""         # !!! this cost me hours!
     
     def __init__(self, name_arg: str, description_arg: str, base_directory_arg: str, template_file_arg: str ):  
         super().__init__(name=name_arg, description=description_arg, base_directory=base_directory_arg )
@@ -44,10 +44,11 @@ class GenerateHeaderFile( BaseTool ):
         print( "*** WARNING: GenerateDirectories._arun() called, but not implemented. ***" )
 
 # if main
-if __name__ == "__main__":
-    tool = GenerateHeaderFile(
-    name_arg='Header File Generator',
-    description_arg='A tool for generating headers',
-    base_directory_arg=r"C:\Users\eg197\langchain\gpt_server\code_gen\\",
-    template_file_arg=r"C:\Users\eg197\langchain\gpt_server\code_gen\header_template.txt" )
-    print(tool.create_header_file( "TestClassDeleteMe" ))
+if __name__ == "__main__":  
+  tool = GenerateHeaderFile(  
+    name_arg='Header File Generator',  
+    description_arg='A tool for generating headers',  
+    base_directory_arg=r"C:\Users\eg197\langchain\gpt_server\code_gen\\",  
+    template_file_arg=r"C:\Users\eg197\langchain\gpt_server\code_gen\header_template.txt" 
+  )  
+  print(tool.create_header_file("TestClassDeleteMe"))
