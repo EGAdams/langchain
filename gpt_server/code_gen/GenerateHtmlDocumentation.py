@@ -1,16 +1,25 @@
 import os
+import logging
 
-class GenerateHtmlDocumentation:
-    def __init__(self, base_directory, template_file):
-        self.base_directory = base_directory
-        self.template_file = template_file
+from pydantic import Field
+from langchain.tools.base import BaseTool
+
+class GenerateHtmlDocumentation(BaseTool):
+    
+    base_directory: str = Field(...)
+    template_file: str  = ""         # !!! this cost me hours!
+    
+    def __init__(self, name_arg: str, description_arg: str, base_directory_arg: str, template_file_arg: str ):  
+        super().__init__(name=name_arg, description=description_arg, base_directory=base_directory_arg )
+        self.template_file=template_file_arg
+        logging.basicConfig( level=logging.INFO )
 
     def validate_class_name(self, class_name):
         # Check if class name is not empty
         if not class_name:
             return False
         # Check if class name contains invalid characters
-        invalid_chars = ['<', '>', ':', '"', '/', '\\', '|', '?', '*']
+        invalid_chars = ['<', '>', ':', '\"', '/', '\\', '|', '?', '*']
         if any(char in class_name for char in invalid_chars):
             return False
         return True
@@ -41,8 +50,17 @@ class GenerateHtmlDocumentation:
                 return f"HTML file '{class_name}.html' does not exist."
         else:
             return f"Failed to remove HTML file '{class_name}.html'. Invalid class name."
+    
+    
+    def _run(self, *args, **kwargs):
+        # Implement the synchronous execution logic here
+        print( "*** WARNING: GenerateDirectories._run() called, but not implemented. ***" )
+        
+    async def _arun(self, *args, **kwargs):
+        # Implement the asynchronous execution logic here
+        print( "*** WARNING: GenerateDirectories._arun() called, but not implemented. ***" )
 
 # if main
 if __name__ == "__main__":
-    tool = GenerateHtmlDocumentation( r"C:\Users\eg197\gpt_write_python\code_gen\\", r"C:\Users\eg197\gpt_write_python\code_gen\html_template.txt" )
+    tool = GenerateHtmlDocumentation( "GenerateHtmlDocumentation", "This tool generates HTML documentation for a given class", r"C:\\Users\\eg197\\gpt_write_python\\code_gen\\\\", r"C:\\Users\\eg197\\gpt_write_python\\code_gen\\html_template.txt" )
     print(tool.create_html_file( "NewClass" ))
