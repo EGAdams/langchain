@@ -6,11 +6,11 @@ from langchain.tools.base import BaseTool
 
 class GenerateHeaderFile( BaseTool ):
     base_directory: str = Field(...)
-    template_file:  str = Field(...)
+    template_file: str
     
-    def __init__(self, name: str, description: str, base_directory: str, template_file: str ):  
-        super().__init__(name=name, description=description, base_directory=base_directory )
-        self.template_file=template_file
+    def __init__(self, name_arg: str, description_arg: str, base_directory_arg: str, template_file_arg: str ):  
+        super().__init__(name=name_arg, description=description_arg, base_directory=base_directory_arg )
+        self.template_file=template_file_arg
         logging.basicConfig( level=logging.INFO )  
 
     def validate_class_name(self, class_name):
@@ -45,5 +45,9 @@ class GenerateHeaderFile( BaseTool ):
 
 # if main
 if __name__ == "__main__":
-    tool = GenerateHeaderFile( r"C:\Users\eg197\gpt_write_python\code_gen\\", r"C:\Users\eg197\gpt_write_python\code_gen\header_template.txt" )
+    tool = GenerateHeaderFile(
+    name_arg='Header File Generator',
+    description_arg='A tool for generating headers',
+    base_directory_arg=r"C:\Users\eg197\langchain\gpt_server\code_gen\\",
+    template_file_arg=r"C:\Users\eg197\langchain\gpt_server\code_gen\header_template.txt" )
     print(tool.create_header_file( "TestClassDeleteMe" ))
