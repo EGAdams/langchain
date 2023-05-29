@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Summary</title>
+    <style>
+        .section {
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .white-section {
+            background-color: #fff;
+        }
+        .gray-section {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section white-section">
+        <h2>Overview of the Project</h2>
+        <p>The project we are working on is a code generation system designed to automate the creation of C++ classes. The system is being developed to work within the LangChain framework, a platform for building applications with Large Language Models (LLMs). The purpose of this project is to expedite the process of creating new C++ classes by automating the generation of .h and .cpp files, as well as updating the Makefile and creating HTML documentation for each new class.</p>
+    </div>
+    <div class="section gray-section">
+        <h2>Progress to Date</h2>
+        <p>We have made significant progress in developing the tools needed for our code generation system. These tools include GenerateHeaderFile, GenerateCppFile, GenerateHtmlDocumentation, and GenerateUnitTest. All of these tools have been tested and are working as expected.</p>
+    </div>
+    <div class="section white-section">
+        <h2>Goals and Strategic Steps</h2>
+        <p>The main goal of our project is to create a CodeGenAgent that can use these tools to automate the process of creating new C++ classes. The agent will be designed to work within the LangChain framework, and will be able to interpret instructions from the user to generate the necessary code.</p>
+    </div>
+    <div class="section gray-section">
+        <h2>In-Depth Analysis of the Code</h2>
+        <p>The code we have worked on so far is primarily focused on the tools needed for code generation. Each tool is designed to perform a specific step in the code generation process, such as creating a new directory, generating a .h or .cpp file, updating the Makefile, creating HTML documentation, or generating a unit test file.</p>
+    </div>
+    <div class="section white-section">
+        <h2>Discussion on the Classes</h2>
+        <p>The classes we have explored in this project are primarily the tools needed for code generation, as well as the CodeGenAgent. Each tool is a class that inherits from the BaseTool class in the LangChain framework, and implements the necessary functionality for a specific step in the code generation process. The CodeGenAgent is a class that inherits from the BaseSingleActionAgent class in the LangChain framework, and is designed to use the tools we have developed to automate the code generation process. The agent is able to interpret instructions from the user, select the appropriate tool for each step of the process, and execute the tool's functionality.</p>
+    </div>
+    <div class="section gray-section">
+        <h2>GenerateDirectories Class</h2>
+        <p>The <a href="https://github.com/EGAdams/langchain/blob/master/gpt_server/code_gen/GenerateDirectories.py">GenerateDirectories</a> class is a tool that creates a new directory for each class that is being generated. The directory name matches the class name in camel-case format. This class inherits from the BaseTool class in the LangChain framework, and implements the necessary functionality for creating directories. The class includes methods for validating the directoryname, creating the directory, and listing the directories in the base directory.</p>
+    </div>
+    <div class="section white-section">
+        <h2>GenerateHeaderFile Class</h2>
+        <p>The <a href="https://github.com/EGAdams/langchain/blob/master/gpt_server/code_gen/GenerateHeaderFile.py">GenerateHeaderFile</a> class is a tool that generates a .h file for the new class, using a predefined template. This class also inherits from the BaseTool class, and implements the necessary functionality for generating .h files. The class includes methods for validating the file name, creating the file, and populating the file with the necessary code based on the template.</p>
+    </div>
+    <div class="section gray-section">
+        <h2>GenerateCppFile Class</h2>
+        <p>The <a href="https://github.com/EGAdams/langchain/blob/master/gpt_server/code_gen/GenerateCppFile.py">GenerateCppFile</a> class is a tool that generates a .cpp file for the new class, using a predefined template. Like the other tools, this class inherits from the BaseTool class, and implements the necessary functionality for generating .cpp files. The class includes methods for validating the file name, creating the file, and populating the file with the necessary code based on the template.</p>
+    </div>
+    <div class="section white-section">
+        <h2>UpdateMakefile Class</h2>
+        <p>The <a href="https://github.com/EGAdams/langchain/blob/master/gpt_server/code_gen/UpdateMakeFile.py">UpdateMakefile</a> class is a tool that updates the Makefile to include the new class in the build process. This class inherits from the BaseTool class, and implements the necessary functionality for updating the Makefile. The class includes methods for validating the Makefile, reading the existing Makefile, and updating the Makefile with the necessary code.</p>
+    </div>
+    <div class="section gray-section">
+        <h2>GenerateHtmlDocumentation Class</h2>
+        <p>The <a href="https://github.com/EGAdams/langchain/blob/master/gpt_server/code_gen/GenerateHtmlDocumentation.py">GenerateHtmlDocumentation</a> class is a tool that creates an HTML file that serves as a comprehensive webpage detailing the object's functionality and usage instructions. This class inherits from the BaseTool class, and implements the necessary functionality for generating HTML documentation. The class includes methods for validating the file name, creating the file, and populating the file with the necessary code based on the template.</p>
+    </div>
+    <div class="section white-section">
+        <h2>GenerateUnitTest Class</h2>
+        <p>The <a href="https://github.com/EGAdams/langchain/blob/master/gpt_server/code_gen/GenerateUnitTest.py">GenerateUnitTest</a> class is a tool that generates a unit test file for the new class. This class inherits from the BaseTool class, and implements the necessary functionality for generating unit test files. The class includes methods for validating the class name, creating the test file, updating the test file, and removing the test file. The class also includes a test in the main method that demonstrates how to use the tool to create a unit test file.</p>
+    </div>
+    <div class="section gray-section">
+        <h2>CodeGenAgent Class</h2>
+        <p>The <a href="https://github.com/EGAdams/langchain/blob/master/gpt_server/code_gen/CodeGenAgent.py">CodeGenAgent</a> class is the main classin our project. This class inherits from the BaseSingleActionAgent class in the LangChain framework, and is designed to use the tools we have developed to automate the code generation process. The agent is able to interpret instructions from the user, select the appropriate tool for each step of the process, and execute the tool's functionality. The agent also includes methods for planning the next action based on the results of the previous action, and for creating an instance of the agent from a language model and a sequence of tools.</p>
+    </div>
+</body>
+</html>
