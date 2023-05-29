@@ -1,9 +1,17 @@
+import logging
 import os
 
-class GenerateHeaderFile:
-    def __init__(self, base_directory, template_file):
-        self.base_directory = base_directory
-        self.template_file = template_file
+from pydantic import Field
+from langchain.tools.base import BaseTool
+
+class GenerateHeaderFile( BaseTool ):
+    base_directory: str = Field(...)
+    template_file:  str = Field(...)
+    
+    def __init__(self, name: str, description: str, base_directory: str, template_file: str ):  
+        super().__init__(name=name, description=description, base_directory=base_directory )
+        self.template_file=template_file
+        logging.basicConfig( level=logging.INFO )  
 
     def validate_class_name(self, class_name):
         # Check if class name is not empty
@@ -26,6 +34,14 @@ class GenerateHeaderFile:
             return f"Header file '{class_name}.h' created successfully."
         else:
             return f"Failed to create header file '{class_name}.h'. Invalid class name."
+        
+    def _run(self, *args, **kwargs):
+        # Implement the synchronous execution logic here
+        print( "*** WARNING: GenerateDirectories._run() called, but not implemented. ***" )
+
+    async def _arun(self, *args, **kwargs):
+        # Implement the asynchronous execution logic here
+        print( "*** WARNING: GenerateDirectories._arun() called, but not implemented. ***" )
 
 # if main
 if __name__ == "__main__":
