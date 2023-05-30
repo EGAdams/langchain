@@ -13,11 +13,13 @@ from langchain.agents.agent_toolkits import create_python_agent
 from langchain.tools.python.tool import PythonREPLTool
 from langchain.python import PythonREPL
 from langchain.llms.openai import OpenAI
+from dotenv import load_dotenv
 
-key=""
-import os
-os.environ["OPENAI_API_KEY"] = key
+# Load .env file
+load_dotenv()
 
+# Get API key from .env file
+os.environ[ "OPENAI_API_KEY"  ] = os.getenv( 'OPENAI_API_KEY' )
 
 class PythonCodeRunner:
     @staticmethod
@@ -28,7 +30,7 @@ class PythonCodeRunner:
         print( "code: ", code )
         print( "creating python agent..." )
         agent_executor = create_python_agent(
-            llm=OpenAI(temperature=0.2, max_tokens=3000 ),
+            llm=OpenAI(temperature=0.2, max_tokens=4097 ),
             tool=PythonREPLTool(),
             verbose=True
         )
