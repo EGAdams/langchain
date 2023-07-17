@@ -15,6 +15,8 @@ from FileReader import FileReader
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin="https://chat.openai.com")
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 @app.post("/run_python_code")
 async def run_python_code():
     return await PythonCodeRunner.run_python_code()
@@ -33,20 +35,22 @@ async def run_python_ast_code():
 
 @app.get("/logo.png")
 async def plugin_logo():
-    filename = 'logo.png'
-    return await quart.send_file(filename, mimetype='image/png')
+    logo_path = os.path.join(BASE_DIR, 'logo.png')
+    return await quart.send_file(logo_path, mimetype='image/png')
 
 @app.get("/.well-known/ai-plugin.json")
 async def plugin_manifest():
     host = request.headers['Host']
-    with open("./.well-known/ai-plugin.json") as f:
+    manifest_path = os.path.join(BASE_DIR, ".well-known", "ai-plugin.json")
+    with open(manifest_path) as f:
         text = f.read()
         return quart.Response(text, mimetype="text/json")
 
 @app.get("/openapi.yaml")
 async def openapi_spec():
     host = request.headers['Host']
-    with open("openapi.yaml") as f:
+    openapi_path = os.path.join(BASE_DIR, "openapi.yaml")
+    with open(openapi_path) as f:
         text = f.read()
         return quart.Response(text, mimetype="text/yaml")
 
